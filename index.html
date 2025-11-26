@@ -8,8 +8,31 @@
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
-      background: #eee9f4;
+      background: radial-gradient(circle at top, #e8e2f7, #cfc8e6, #b9b2d4);
       color: #3f3a61;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Estrellas animadas */
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: transparent;
+      z-index: -1;
+      background-image: radial-gradient(#ffffff 1px, transparent 1px);
+      background-size: 3px 3px;
+      animation: shimmer 6s ease-in-out infinite alternate;
+      opacity: 0.35;
+    }
+
+    @keyframes shimmer {
+      0% { opacity: 0.2; transform: translateY(0px); }
+      100% { opacity: 0.45; transform: translateY(-20px); }
     }
     header {
       background: #c3bdd8;
@@ -18,7 +41,12 @@
       border-bottom: 3px solid #ada5c7;
     }
     header img {
-      width: 120px;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #7d75a8;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
     nav {
       display: flex;
@@ -51,7 +79,7 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Radar Local Gto" />
+    <img src="logo.png" alt="Radar Local Logo" />
     <h1>Radar Local</h1>
     <p>Historias, cultura y curiosidades de Guanajuato</p>
   </header>
@@ -72,7 +100,7 @@
 
   <section id="historia" class="section">
     <h2>Historia de Guanajuato</h2>
-    <p>introducir texto</p>
+    <p>Aquí puedes agregar textos como la historia de la Alhóndiga de Granaditas, la Independencia, personajes importantes y más.</p>
   </section>
 
   <section id="leyendas" class="section">
@@ -92,13 +120,12 @@
 
   <section id="contacto" class="section">
     <h2>Contacto</h2>
-    <p>Faceboock: Radar Local Gto
-      Instagram: Radar_Local_Gto
-      YouTube: Radar Local Gto.</p>
+    <p>Agrega redes sociales, correo de contacto o un formulario.</p>
   </section>
 
   <footer>
-    <p>© 2025 Radar Local — Creado por Paola y Aiden</p>
+    <p>© 2025 Radar Local — Creado por Paola</p>
   </footer>
 </body>
 </html>
+
