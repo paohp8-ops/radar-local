@@ -111,6 +111,7 @@
       border-radius: 8px;
     }
 
+    /* estilos existentes para el footer y social */
     footer {
       text-align: center;
       padding: 25px;
@@ -138,6 +139,89 @@
 
     .social a:hover {
       background: #5d5588;
+    }
+
+    /* ------------------------------
+       ESTILOS PARA LA SECCIÓN DE VIDEO
+    --------------------------------*/
+    .video-container {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      text-decoration: none;
+    }
+
+    .video-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      max-width: 500px; /* tamaño máximo en escritorio */
+      margin: 20px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .video-thumbnail {
+      width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: middle;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      display: block;
+    }
+
+    /* Botón de play estilo overlay */
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 72px;
+      height: 72px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .play-button::after {
+      content: "";
+      display: inline-block;
+      margin-left: 6px;
+      width: 0;
+      height: 0;
+      border-left: 16px solid #fff;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+
+    .video-wrapper:hover .play-button {
+      background: rgba(255,0,0,0.85);
+      transform: translate(-50%, -50%) scale(1.06);
+    }
+
+    .video-wrapper:hover .video-thumbnail {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.30);
+    }
+
+    /* pequeña mejora para accesibilidad: foco en enlace */
+    .video-container:focus .play-button,
+    .video-container:focus-visible .play-button {
+      outline: 3px solid rgba(125,117,168,0.35);
+      outline-offset: 6px;
+    }
+
+    /* adaptaciones para pantallas muy pequeñas */
+    @media (max-width: 420px) {
+      .section { padding: 30px 14px; }
+      header h1 { font-size: 2rem; }
+      .video-wrapper { max-width: 100%; margin: 16px auto; }
+      .play-button { width: 60px; height: 60px; }
+      .play-button::after { border-left-width: 14px; border-top-width: 9px; border-bottom-width: 9px; margin-left: 5px; }
     }
   </style>
 </head>
@@ -168,13 +252,13 @@
   <section id="leyendas" class="section">
     <h2>Leyendas</h2>
     <p>Entre las leyendas más famosas de Guanajuato se encuentran el Callejón del Beso, la Momia que camina, el Conde de la Valenciana y la Llorona de Tepetapa. Cada historia mezcla amor, tragedia y misterio, formando parte de la identidad cultural de la ciudad.</p>
-    <img src="imagen2.jpg" class="img-resp" alt="guanajuato">
+    <img src="imagen3.jpg" class="img-resp" alt="guanajuato">
   </section>
 
   <section id="lugares" class="section">
     <h2>Lugares</h2>
     <p>Entre los lugares más emblemáticos están La Alhóndiga de Granaditas, la Mina de La Valenciana, el Templo de la Compañía de Jesús, la Basílica de Nuestra Señora, el Teatro Juárez, el Museo de las Momias y la Universidad de Guanajuato. Sus calles, túneles y miradores completan la experiencia turística.</p>
-    <img src="imagen3.jpg" class="img-resp" alt="guanajuato">
+    <img src="imagen2.jpg" class="img-resp" alt="guanajuato">
   </section>
 
   <section id="cultura" class="section">
@@ -189,9 +273,33 @@
     <img src="imagen8.jpg" class="img-resp" alt="guanajuato">
   </section>
 
+  <!-- 📌 NUEVA SECCIÓN DE VIDEO (INTEGRADA, sin cambiar nada más) -->
+  <section id="video" class="section">
+    <h2>Video recomendado</h2>
+    <p>
+      Disfruta este video sobre el <strong>Museo Iconográfico del Quijote</strong>.<br>
+      Haz clic en la miniatura para ver el video en YouTube.
+    </p>
+
+    <a 
+      href="https://youtu.be/3pXf1c7hMAg?si=gIGZa7tVnbuJl7Og" 
+      target="_blank"
+      class="video-container"
+      aria-label="Ver video sobre el Museo Iconográfico del Quijote en YouTube">
+
+      <div class="video-wrapper" role="img" aria-hidden="true">
+        <img 
+          src="https://img.youtube.com/vi/3pXf1c7hMAg/maxresdefault.jpg" 
+          alt="Miniatura del video del Museo Iconográfico del Quijote"
+          class="video-thumbnail">
+        <div class="play-button" aria-hidden="true"></div>
+      </div>
+    </a>
+  </section>
+  <!-- FIN NUEVA SECCIÓN -->
+
   <footer>
     © 2025 Radar Local — Creado por Paola & Aiden
-         TBC Valenciana, Guanajuato, Gto.
     <div class="social">
       <a href="https://www.instagram.com/radar_local_gto?igsh=dTd4Z2xhNDVwcGpi" target="_blank">Instagram</a>
       <a href="https://www.facebook.com/share/16125M192Z/" target="_blank">Facebook</a>
